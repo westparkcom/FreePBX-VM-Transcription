@@ -35,7 +35,7 @@ A Microsoft Azure cognitive services API key is required for transcription and c
 
 ## FreePBX Setup
 
-In FreePBX browse to *Settings -> Voicemail Admin -> Settings -> Email Config* then add the transcription tag {{{{TRANSCRIPTION}}}} to the *Email Body*. The script will search for this tag to replace with the transcription text. You can also use HTML and the script will automatically change the content type to text/html. Here is a sample html email:
+In FreePBX browse to **Settings -> Voicemail Admin -> Settings -> Email Config** then add the transcription tag **{{{{TRANSCRIPTION}}}}** to the **Email Body**. The script will search for this tag to replace with the transcription text. You can also use HTML and the script will automatically change the content type to text/html. Here is a sample html email:
 
     <html>
     <body>
@@ -69,3 +69,5 @@ In FreePBX browse to *Settings -> Voicemail Admin -> Settings -> Email Config* t
     Visit <a href="https://your.pbxaddress.tld">https://your.pbxaddress.tld</a> to check your voicemail with a web browser.</p>
     </body>
     </html>
+
+Finally, set the **Mail Command** value to **/usr/local/bin/emailproc**
