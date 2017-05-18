@@ -1,0 +1,3 @@
+#!/bin/bash
+VALUE=$(cat)
+echo "$VALUE" | /usr/local/bin/sttparse | /usr/sbin/sendmail -t -v
