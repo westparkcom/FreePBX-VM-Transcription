@@ -17,7 +17,7 @@ Install the scripts:
 
 Install the appropriate python version
 
-    yum install python36u python36u python36u-devel
+    yum install python36u python36u-devel
 
 Install the necessary python libraries
 
