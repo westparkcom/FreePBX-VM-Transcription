@@ -28,19 +28,19 @@ def speechrec(wavobj):
     Sends wav attachment to Google Speech Recognition Service.
     """
     stream = [base64.b64decode(wavobj)]
-    client = speech.SpeechClient.from_service_account_json(globalconfig('creds_file'))
-    requests = (
-        speech.StreamingRecognizeRequest(audio_content=chunk) for chunk in stream
-    )
-    config = speech.RecognitionConfig(
-        encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
-        sample_rate_hertz=8000,
-        language_code=globalconfig('speech_language'),
-        model=globalconfig('speech_model'),
-        enable_automatic_punctuation=True
-    )
-    streaming_config = speech.StreamingRecognitionConfig(config=config)
     try:
+        client = speech.SpeechClient.from_service_account_json(globalconfig('creds_file'))
+        requests = (
+            speech.StreamingRecognizeRequest(audio_content=chunk) for chunk in stream
+        )
+        config = speech.RecognitionConfig(
+            encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
+            sample_rate_hertz=8000,
+            language_code=globalconfig('speech_language'),
+            model=globalconfig('speech_model'),
+            enable_automatic_punctuation=True
+        )
+        streaming_config = speech.StreamingRecognitionConfig(config=config)
         responses = client.streaming_recognize(
             config=streaming_config,
             requests=requests,
